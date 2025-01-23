@@ -212,7 +212,9 @@ export default class FullNoteCalendar extends EditableCalendar {
                 events.push(...results);
             }
         }
-        return events;
+        // return events;
+		// 再帰メソッドを使った形に書き換える
+        return await this.getEventsInFolderRecursive(eventFolder);
     }
 
     async createEvent(event: OFCEvent): Promise<EventLocation> {
